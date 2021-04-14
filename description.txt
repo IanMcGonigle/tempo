@@ -1,0 +1,30 @@
+Please see the exercise. You have 48 hours to do this test so please return it by the time indicated on the
+email.
+Once you are ready to submit, please post your work to a private GitHub repository and send me the link or
+just send me the files in a zip directly.
+Please follow the instructions, they are vague to allow for your interpretation.
+Please do not hesitate to be in contact if you want any clarification or ask questions.
+Introduction
+Take a look at the following REST endpoints:
+https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/users/
+https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/teams/
+Append the IDs of users and teams to get further information about each entity, e.g.
+https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/users/fd282131-d8aa-4819-b0c8-d9e0bfb1b75c
+https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/teams/7676a4bf-adfe-415c-941b-1739af07039b
+This is the Teams REST service and it has a list of users, each user can be part of zero or more teams. Each team has
+one user as a team lead.
+Main task
+Build a UI showing an overview of all the teams, and allow the current user to navigate between teams to see each
+team's members. At the top of the teams overview page, add an input field, which filters the teams when the input
+value changes. This input field could also be used in other pages of your app, e.g. for filtering out team members in
+the team page.
+What we are looking for:
+Unit tests, routing, state management (going full redux or similar is not necessary). The UI does not need to look
+good, unless you are applying for a more UI centric front-end developer role here at Tempo.
+Must have
+- README.md : describing how you approach the problem and/or solution and most importantly how to run (best
+to keep it simple). If using a boilerplate (such as create-react-app) please denote where the most important pieces
+of code reside.
+- Code!! github url/tarball/zip/etc
+Recommended
+- React is preferred.
