@@ -1,4 +1,36 @@
-# Getting Started with Create React App
+# Tempo.io Code Assignment by Ian McGonigle
+
+To meet the requirements of this assignment I created a single page application with two routes. The routes are contained in `src/routes`. Routing is handled with `React Router`.
+
+The first route `/` shows a clickable list of the team names. There is an input that lets you filter the list by the name. If you click a team name, you are taken to the other route.
+
+The second route is `/team/:teamId`. This displays the team name, a card for each team member, and an input that lets you filter by the team members name. This is the same component used to filter the list of team names on the index page. This was accomplished by passing functions that handle the filter boolean logic, and the rendering as props.
+
+In the `src/components` folder you will find the `FilteredList` and `UserCard` components.
+
+`FilteredList` is used on both routes. It renders the input, and uses `itemRenderer` in a map function to render items. The list of items is filtered using `onFilter`. Using props for this logic and component means the component could be used in different contexts and different data structures.
+
+`UserCard` Displays an avatar, a name, location, and in applicable instances a label for the team lead.
+
+State management was done using `Recoil.js`. It is a small light weight library. The description of the assignment mentioned not to "go full redux". While Redux _is_ my preferred state management library, I have been looking for an excuse to try `Recoil.js` out. The `atoms` of state can be found in `src/state/index.js`.
+
+There are unit tests for both `FilteredList` and `UserCard`. The tests are done `React Testing Library` and `Jest`.
+
+To run the project, either checkout the code from Github, or extract the zipped directory that I will provide.
+
+After you have the files locally `cd` into the `tempo` directory. Next run `npm install` to install the dependencies. After the dependencies have installed, run `npm start` to run the project on your localhost at port 3000.
+
+You can run the tests by calling `npm run test` in the tempo directory.
+
+More detailed instruction about running a project created with `create-react-app` can be found in the "Getting Started" section which is leftover from the initial install of `create-react-app`
+
+Summary of the tools I used:
+- [React](https://reactjs.org/) as the framework for the SPA
+- [React Router](https://reactrouter.com/) for routing.
+- [Recoil](https://recoiljs.org/) for state management.
+- [Tailwinds CSS](https://tailwindcss.com/) for styling.
+
+## Getting Started: Using Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,43 +60,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

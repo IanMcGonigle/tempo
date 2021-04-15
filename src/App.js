@@ -1,72 +1,45 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import './App.css';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import axios from 'axios';
+import { teamsState } from './state/';
+import { TEAMS_URL } from './constants/'
 import TeamDetail from './routes/TeamDetail';
-import UserIndex from './routes/UserIndex';
-import TeamIndex from './routes/TeamIndex';
+import TeamsIndex from './routes/TeamsIndex';
 
 function App() {
-
-  // Get the user data
-  React.useEffect( () => {
-    axios.get('https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/users/').then( response => {
-      console.log("users ", response);
-      setUserData(response.data)
-    })
-  }, []);
+  const setTeams = useSetRecoilState(teamsState);
 
   //Get the teams data
-  React.useEffect( () => {
-    axios.get('https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/teams/').then( response => {
-      console.log("teams ", response);
-      setTeamData(response.data);
-    })
-  }, []);
+  useEffect(() => {
+    axios
+      .get(TEAMS_URL)
+      .then((response) => {
+        setTeams(response.data);
+      });
+  }, [setTeams]);
 
-  const [teamData, setTeamData] = React.useState([]);
-  const [userData, setUserData] = React.useState([]);
-
-  // Team overview?
-  // 7676a4bf-adfe-415c-941b-1739af07039b
   return (
-    <div className="TempoDemo">
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/team/:id">
-            <TeamDetail />
-          </Route>
-          <Route path="/users">
-            <UserIndex data={userData}/>
-          </Route>
-          <Route path="/user/:id">
-            <UserIndex />
-          </Route>
-          <Route path="/">
-            <TeamIndex data={teamData}/>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div>
+      <Router>
+        <div>
+        <header className="py-6 px-4 bg-indigo-700 text-white flex font-bold mb-6 shadow">
+            <h1 className="text-2xl md:text-5xl">
+              Tempo.io
+              <small className="block text-xs mt-1">Code assignment by Ian McGonigle</small>
+            </h1>
+          </header>
+          <Link className="m-4 py-2 px-4 bg-indigo-700 rounded text-white shadow hover:shadow-md font-bold hover:bg-indigo-500" to='/'>View All Teams</Link>
+          <Switch className="my-8">
+            <Route path='/team/:id'>
+                <TeamDetail />
+            </Route>
+            <Route path='/'>
+              <TeamsIndex name='Team' store={teamsState} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
