@@ -6,6 +6,8 @@ The first route `/` shows a clickable list of the team names. There is an input 
 
 The second route is `/team/:teamId`. This displays the team name, a card for each team member, and an input that lets you filter by the team members name. This is the same component used to filter the list of team names on the index page. This was accomplished by passing functions that handle the filter boolean logic, and the rendering as props.
 
+You can always navigate back to the main page by clicking on the `View All Teams` link below the header.
+
 In the `src/components` folder you will find the `FilteredList` and `UserCard` components.
 
 `FilteredList` is used on both routes. It renders the input, and uses `itemRenderer` in a map function to render items. The list of items is filtered using `onFilter`. Using props for this logic and component means the component could be used in different contexts and different data structures.
