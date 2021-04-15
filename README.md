@@ -18,9 +18,9 @@ There are unit tests for both `FilteredList` and `UserCard`. The tests are done 
 
 To run the project, either checkout the code from Github, or extract the zipped directory that I will provide.
 
-After you have the files locally `cd` into the `tempo` directory. Next run `npm install` to install the dependencies. After the dependencies have installed, run `npm start` to run the project on your localhost at port 3000.
+After you have the files locally `cd` into the project's directory. Next run `npm install` to install the dependencies. After the dependencies have installed, run `npm start` to run the project on your localhost at port 3000.
 
-You can run the tests by calling `npm run test` in the tempo directory.
+You can run the tests by calling `npm run test` in the project's root directory.
 
 More detailed instruction about running a project created with `create-react-app` can be found in the "Getting Started" section which is leftover from the initial install of `create-react-app`
 
