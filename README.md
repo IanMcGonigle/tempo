@@ -18,6 +18,8 @@ State management was done using `Recoil.js`. It is a small light weight library.
 
 There are unit tests for both `FilteredList` and `UserCard`. The tests are done `React Testing Library` and `Jest`.
 
+The site works across devices sizes. It was styled with `Tailwinds CSS` which is a "utility first" css framework. In is installed via a link tag loading the file from a cdn. There is no npm dependency for style. There is no CSS in this project at all.
+
 To run the project, either checkout the code from Github, or extract the zipped directory that I will provide.
 
 After you have the files locally `cd` into the project's directory. Next run `npm install` to install the dependencies. After the dependencies have installed, run `npm start` to run the project on your localhost at port 3000.
